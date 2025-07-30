@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Weather Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for easier DOM manipulation -->
+    <link rel="stylesheet" href="style.css"> <!-- CSS for styling the app -->
+    <script src="script.js"></script> <!-- JavaScript for app functionality -->
+</head>
+<body>
+    <div class="app-container"> <!-- This is to implement the Main container for the app -->
+        <h1 class="app-title">🌤️ WEATHER GLOBE</h1>
+        <p class="app-subtitle">Discover weather conditions in every city in the world</p>
+        
+        <div class="search-container"> <!-- This is to implement a Search input and button -->
+            <input type="text" class="search-input" placeholder="Enter city name ( Kigali, London, Kampala)" id="cityInput"> <!-- Input field for city name -->
+            <button class="search-button" onclick="searchWeather()">🔍</button>
+        </div> 
+        
+        <button class="location-button" onclick="getCurrentLocationWeather()">📍 Use My Location</button> 
+        
+        <div class="spinner" id="spinner"></div> <!-- Spinner for loading state -->
+        <div class="loading" id="loading">Fetching weather data...</div> <!-- Loading message displayed while fetching data -->
+        <div class="error-message" id="errorMessage"></div> <!-- Error message displayed when there is an issue with fetching data -->
+        
+        <div class="weather-container" id="weatherContainer"> <!-- This is to implement the Weather container where weather data will be displayed -->
+            <div class="location-name" id="locationName"></div> <!-- Display the name of the location -->
+            <img class="weather-icon" id="weatherIcon" alt="Weather Icon"> <!-- Weather icon representing current conditions -->
+            <div class="temperature" id="temperature"></div> <!-- Display the current temperature -->
+            <div class="weather-description" id="weatherDescription"></div> <!-- Description of the current weather conditions -->
+            
+            <div class="weather-details"> <!-- This is to implement the Weather details section where additional weather information will be displayed -->
+                <div class="detail-item">   
+                    <div class="detail-label">Feels Like</div> <!-- Label for the feels like temperature -->
+                    <div class="detail-value" id="feelsLike"></div> <!-- Display the feels like temperature -->
+                </div>
+                <div class="detail-item"> 
+                    <div class="detail-label">Humidity</div> <!-- Label for humidity -->
+                    <div class="detail-value" id="humidity"></div> <!-- Display the humidity percentage -->
+                </div>
+                <div class="detail-item"> 
+                    <div class="detail-label">Wind Speed</div> <!-- Label for wind speed -->
+                    <div class="detail-value" id="windSpeed"></div> <!-- Display the wind speed -->
+                </div>
+                <div class="detail-item"> 
+                    <div class="detail-label">Pressure</div> <!-- Label for atmospheric pressure -->
+                    <div class="detail-value" id="pressure"></div> <!-- Display the atmospheric pressure in hectopascals -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body> 
+</html>

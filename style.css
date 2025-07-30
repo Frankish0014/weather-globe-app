@@ -1,0 +1,272 @@
+* { /* This resets all elements to have no margin, padding, and sets box-sizing to border-box for consistent sizing. */
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { /* This styles the body of the document with a gradient background, sets a font family, and centers the content. */
+    font-family: 'Arial', sans-serif; 
+    background: linear-gradient(135deg, #74b9ff, #0984e3, #6c5ce7);
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app-container { /* This styles the main application container with a semi-transparent background, rounded corners, padding, and a shadow effect. */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); 
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.app-container:hover { /* This adds a hover effect to the app container, slightly lifting it and adding a shadow for depth. */
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.app-title { /* This styles the main title of the application with a large font size, bold weight, and a subtle text shadow for depth. */
+    color: #2d3436;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-subtitle { /* This styles the subtitle of the application with a smaller font size, lighter color, and margin for spacing. */
+    color: #636e72;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+  
+.search-container { /* This styles the search container, which holds the search input and button, with relative positioning for absolute elements inside it. */
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-input { /* This styles the search input field with a light background, padding, border, and rounded corners. It also includes a transition effect for focus state. */
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.search-input:focus { /* This styles the search input field when it is focused, changing the border color, scaling it slightly, and adding a shadow for emphasis. */
+    border-color: #74b9ff;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(116, 185, 255, 0.3);
+}
+
+.search-button { /* This styles the search button with a blue background, white text, padding, rounded corners, and a hover effect that changes the background color and scales the button slightly. */
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #74b9ff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover { /* This styles the search button when hovered, changing the background color and scaling it slightly for a visual effect. */
+    background: #0984e3;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.location-button { /* This styles the button for fetching weather by current location with a green background, white text, padding, rounded corners, and a hover effect that changes the background color and scales the button slightly. */
+    background: #00b894;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.location-button:hover { /* This styles the location button when hovered, changing the background color and scaling it slightly for a visual effect. */
+    background: #00a085;
+    transform: scale(1.05);
+}
+
+.weather-container {    /* This styles the weather container that holds the weather data with a gradient background, rounded corners, padding, and a shadow effect. It also includes a transition for a fade-in effect. */
+    background: linear-gradient(135deg, #a8e6cf, #88d8c0);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.weather-container.show { /* This class is used to show the weather container with a fade-in effect.*/ 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.location-name { /* This styles the location name displayed in the weather container with a larger font size, bold weight, and a margin for spacing. */
+    font-size: 1.5rem;
+    color: #2d3436;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.weather-icon { /* This styles the weather icon with a fixed size, margin for spacing, and a drop shadow effect. It also includes a hover effect that scales and rotates the icon slightly for a playful interaction. */
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.weather-icon:hover { /* This styles the weather icon when hovered, scaling it slightly and rotating it for a playful effect. */
+    transform: scale(1.1) rotate(5deg);
+}
+
+.temperature { /* This styles the temperature display with a large font size, bold weight, and a margin for spacing. It also includes a text shadow for depth. */
+    font-size: 4rem;
+    font-weight: bold;
+    color: #2d3436;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weather-description {  /* This styles the weather description with a medium font size, lighter color, and margin for spacing. It also includes a text transformation to capitalize the first letter of each word. */
+    font-size: 1.3rem;
+    color: #636e72;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.weather-details { /* This styles the weather details section with a grid layout, spacing between items, and a margin for spacing from the top. */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.detail-item { /* This styles each detail item in the weather details section with a light background, padding, rounded corners, and a hover effect that changes the background color and slightly lifts the item. */ 
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover { /* This styles each detail item when hovered, changing the background color and slightly lifting the item for a visual effect. */
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.detail-label { /* This styles the label for each detail item with a smaller font size, lighter color, and margin for spacing. */
+    font-size: 0.9rem;
+    color: #636e72;
+    margin-bottom: 5px;
+}
+
+.detail-value { /* This styles the value for each detail item with a larger font size, bold weight, and a darker color for emphasis. */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2d3436;
+}
+
+.loading { /* This styles the loading message that appears while fetching weather data with a light background, padding, rounded corners, and a transition effect. It is initially hidden and shown when data is being fetched. */
+    display: none;
+    color: #74b9ff;
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+.loading.show { /* This class is used to show the loading message when data is being fetched. */
+    display: block;
+}
+
+.error-message { /* This styles the error message that appears when there is an issue fetching weather data, such as a city not found or network error. It has a light background, padding, rounded corners, and a bold font weight. It is initially hidden and shown when an error occurs. */
+    color: #e17055;
+    background: rgba(225, 112, 85, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    display: none;
+}
+
+.error-message.show { /* This class is used to show the error message when an error occurs. */
+    display: block;
+}
+
+.spinner { /* This styles the loading spinner that appears while fetching weather data. It has a circular shape, a border, and an animation that makes it spin continuously. It is initially hidden and shown when data is being fetched. */
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #74b9ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    display: none;
+}
+
+.spinner.show { /* This class is used to show the spinner when data is being fetched. */
+    display: block;
+}
+
+@keyframes spin { /* This defines the animation for the spinner, making it rotate continuously. */
+    0% { /* This sets the initial state of the spinner at 0 degrees rotation. */
+        transform: rotate(0deg); 
+    } 
+
+    100% { /* This sets the final state of the spinner at 360 degrees rotation, completing a full circle. */
+        transform: rotate(360deg);
+    } 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) { /* This media query applies styles for devices with a maximum width of 768px, such as tablets and smaller screens. */
+    .app-container { /* This adjusts the app container's padding and margin for smaller screens. */
+        padding: 25px;
+        margin: 10px;
+    }
+
+    .app-title { /* This reduces the font size of the app title for smaller screens. */
+        font-size: 2rem;
+    }
+
+    .temperature { /* This reduces the font size of the temperature display for smaller screens. */
+        font-size: 3rem;
+    }
+
+    .weather-details { /* This changes the grid layout of the weather details section to a single column for smaller screens. */
+        grid-template-columns: 1fr;
+    } 
+}
+
+@media (max-width: 480px) { /* This media query applies styles for devices with a maximum width of 480px, such as smartphones. */
+    .app-title { /* This further reduces the font size of the app title for smartphones. */
+        font-size: 1.8rem;
+    }
+
+    .temperature { /* This further reduces the font size of the temperature display for smartphones. */
+        font-size: 2.5rem;
+    }
+
+    .search-input {     /* This adjusts the padding of the search input field for smartphones to make it more compact. */
+        padding: 12px 45px 12px 15px;
+        font-size: 14px;
+    }
+}
