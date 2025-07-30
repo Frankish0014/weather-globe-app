@@ -3,42 +3,30 @@ version: '3.8'
 services:
   # Weather application instances
   weather-app-1:
-    build: .
+    image: ishimwefrank/weather-globe:v1
     container_name: weather-app-web01
     ports:
       - "8081:8080"
     restart: unless-stopped
     networks:
       - weather-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
 
   weather-app-2:
-    build: .
+    image: ishimwefrank/weather-globe:v1
     container_name: weather-app-web02
     ports:
       - "8082:8080"
     restart: unless-stopped
     networks:
       - weather-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
 
   # HAProxy Load Balancer
   load-balancer:
     image: haproxy:2.8-alpine
     container_name: weather-lb
     ports:
-      - "80:80"
-      - "8404:8404"  # HAProxy stats page
+      - "8080:80"
+      - "8404:8404"
     volumes:
       - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
     depends_on:
@@ -47,36 +35,7 @@ services:
     restart: unless-stopped
     networks:
       - weather-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
-  # Optional: Nginx for serving static files (alternative to app containers)
-  nginx-static:
-    image: nginx:alpine
-    container_name: weather-nginx
-    ports:
-      - "8083:80"
-    volumes:
-      - ./global_weather_app.html:/usr/share/nginx/html/index.html:ro
-      - ./scipt.js:/usr/share/nginx/html/scipt.js:ro
-      - ./style.css:/usr/share/nginx/html/style.css:ro
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    restart: unless-stopped
-    networks:
-      - weather-network
-    profiles:
-      - static-only
 
 networks:
   weather-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
-
-volumes:
-  haproxy-data:
-    driver: local
