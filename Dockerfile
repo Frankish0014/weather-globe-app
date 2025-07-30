@@ -6,8 +6,8 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy application files to nginx html directory
-COPY global_weather_app.html /usr/share/nginx/html/index.html
-COPY scipt.js /usr/share/nginx/html/scipt.js
+COPY globe_weather_app.html script.js style.css /usr/share/nginx/html/index.html
+COPY script.js /usr/share/nginx/html/script.js
 COPY style.css /usr/share/nginx/html/style.css
 
 # Create custom nginx configuration
