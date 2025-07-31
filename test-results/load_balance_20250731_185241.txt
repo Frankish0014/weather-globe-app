@@ -1,4 +1,0 @@
-Load Balancing Test Results - Thu Jul 31 18:52:46 CAT 2025
-Total Requests: 20
-Web01 Requests: 0
-Web02 Requests: 0
