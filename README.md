@@ -557,6 +557,6 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 **Created by**: Frank Ishimwe  
 **Last Updated**: July 30, 2025  
 **Version**: 1.0  
-**Repository**: [https://github.com/Frankish0014/weather-globe-app]  
-**Docker Hub**: [https://hub.docker.com/repository/docker/ishimwefrank/weather-globe]  
-**Demo Video**: [Your Demo Video URL - To be added]
+**Repository**: https://github.com/Frankish0014/weather-globe-app 
+**Docker Hub**: https://hub.docker.com/repository/docker/ishimwefrank/weather-globe
+**Demo Video**: https://vimeo.com/1106279848/48aa682869?share=copy
